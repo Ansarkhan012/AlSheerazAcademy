@@ -82,9 +82,9 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-primary-800 mt-2 pt-2 text-center text-primary-300">
+        <div className="border-t border-green-800 mt-2 pt-2 text-center text-primary-300">
           <p>&copy; {new Date().getFullYear()} Quran Institute. All rights reserved.</p>
-          <p className="mt-2">Designed for learning Quran online with certified teachers.</p>
+          
         </div>
       </div>
     </footer>

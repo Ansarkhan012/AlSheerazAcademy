@@ -24,7 +24,7 @@ export default function Free() {
     <div>
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
         TRY FOR{" "}
-        <span className="text-green-600">FREE ONLINE QURAN</span>{" "}
+        <span className="text-green-800">FREE ONLINE QURAN</span>{" "}
         CLASSES
       </h1>
 
