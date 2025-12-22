@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Free() {
@@ -14,15 +15,15 @@ export default function Free() {
    
     <div className="flex justify-center">
       <img
-        src="/images/2nd.jpg"
+        src="/images/2nd.webp"
         alt="Quran Book"
-        className="w-full max-w-md "
+        className="w-full rounded-lg max-w-md "
       />
     </div>
 
     
     <div>
-      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+      <h1 className="text-3xl md:text-5xl font-bold mb-6">
         TRY FOR{" "}
         <span className="text-green-800">FREE ONLINE QURAN</span>{" "}
         CLASSES
@@ -34,13 +35,13 @@ export default function Free() {
         complimentary trials. Enroll with us today.
       </p>
 
-      <h2 className="text-3xl font-bold text-green-700 mb-8">
+      <h2 className="text-3xl md:text-5xl font-bold text-green-700 mb-8">
         3 Days Free Trial
       </h2>
 
-      <button className="bg-green-700 hover:bg-green-800 transition text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg">
+      <Link href={"/contact"} className="bg-green-700 hover:bg-green-800 transition text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg">
         Book Free Trial Now
-      </button>
+      </Link>
     </div>
 
   </div>

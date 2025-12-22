@@ -8,36 +8,32 @@ export default function Page() {
       {/* Hero Section */}
       <section
         style={{
-          backgroundImage: "url('/images/1st.jpg')",
+          backgroundImage: "url('/images/1st.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
         className="relative py-24 px-4 text-white"
       >
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-blue-900/60"></div>
+        <div className="absolute  inset-0 bg-black/60"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30">
             <GraduationCap className="w-6 h-6 text-green-300" />
             <span className="text-base font-semibold tracking-wide">
-              مؤسسة تعليمية إسلامية متميزة
+              Path of Knowledge
             </span>
           </div>
-
-          {/* Heading with Arabic Touch */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-              About Our <span className="text-green-300">Institution</span>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6">
+              About <span className="text-green-500">Al Sheeraz Islamic School</span>
             </h1>
             <div className="text-3xl font-arabic text-green-200 mb-2">
               مدرسة الشيراز الإسلامية
             </div>
           </div>
-
-          {/* Description */}
-          <p className="text-xl md:text-2xl max-w-4xl mx-auto text-gray-100 leading-relaxed font-light">
+          <p className="text-sm md:text-md text-gray-200 mb-8">
             Guided by the principles of the Quran and Sunnah, we nurture future leaders 
             with strong Islamic identity, academic excellence, and moral integrity.
           </p>

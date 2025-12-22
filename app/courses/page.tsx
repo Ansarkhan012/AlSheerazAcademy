@@ -12,6 +12,7 @@ import {
   BarChart3,
   Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Courses() {
   const courses = [
@@ -137,26 +138,26 @@ export default function Courses() {
       <section
         className="relative py-24 text-white"
         style={{
-          backgroundImage: "url('/images/1st.jpg')",
+          backgroundImage: "url('/images/1st.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Master the Quran with <span className="text-green-400">Expert Guidance</span>
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
+            Master the Quran with <span className="text-green-500">Expert Guidance</span>
           </h1>
-          <p className="text-lg text-gray-200 mb-8">
+          <p className="text-sm md:text-md text-gray-200 mb-8">
             Structured online Quran courses for all ages, taught by qualified scholars.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-700">
+            <Link href={"/contact"} className="bg-green-700 text-md md:text-xl px-4 md:px-8 py-4 rounded-lg font-semibold hover:bg-green-700">
               Start Free Trial
-            </button>
-            <button className="border border-white px-8 py-3 rounded-lg hover:bg-white/10">
+            </Link>
+            <Link href={"/contact"} className="border border-white text-md md:text-xl px-4 md:px-8 py-4 rounded-lg hover:bg-white/10">
               Book Assessment
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -193,9 +194,9 @@ export default function Courses() {
               </ul>
 
               <div className="text-right">
-                <button className="text-green-700 font-semibold hover:underline">
-                  View Details →
-                </button>
+                <Link href={"/contact"} className="text-green-700 font-semibold hover:underline">
+                  Enroll Now →
+                </Link>
                 
               </div>
             </div>

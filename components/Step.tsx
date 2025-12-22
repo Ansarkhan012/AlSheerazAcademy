@@ -6,7 +6,7 @@ export default function Step() {
     <section className="my-10 bg-white">
   <div className="max-w-7xl mx-auto px-5">
     
-    <h1 className="text-center text-4xl font-bold mb-14">
+    <h1 className="text-center text-3xl md:text-5xl font-bold mb-6">
       <span className='text-green-800'>Learn Quran Online</span> with Tajweed
     </h1>
 

@@ -35,8 +35,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24">
       {/* Page Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className="text-center">
+        <h1 className="text-3xl md:text-5xl font-bold mb-10">
           Contact Us
         </h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto px-4">
@@ -62,7 +62,7 @@ export default function ContactPage() {
               
               <div className="relative p-8 md:p-10 text-white">
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold mb-3">
+                  <h2 className="text-2xl md:text-4xl font-bold">
                     Quick Admission Form
                   </h2>
                   <p className="text-green-100 opacity-90">
@@ -173,7 +173,7 @@ export default function ContactPage() {
               
               <div className="relative p-8 md:p-10">
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold text-gray-100 mb-3">
+                  <h2 className="text-2xl md:text-4xl font-bold text-white">
                     More Ways to Reach Us
                   </h2>
                   <p className="text-[#d1bd74]">
@@ -183,7 +183,7 @@ export default function ContactPage() {
 
                 <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
                   <img
-                    src="/images/3rd.jpg"
+                    src="/images/3rd.webp"
                     alt="Quran Learning Environment at AL Sheeraz Islamic School"
                     className="w-full h-64 md:h-72 object-cover"
                   />

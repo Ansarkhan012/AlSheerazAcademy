@@ -4,6 +4,7 @@ import { useState } from "react";
 import { pricingPlans } from "@/data/pricingData";
 import { Currency } from "@/types/pricing";
 import CurrencyToggle from "./Currency";
+import Link from "next/link";
 
 const exchangeRates: Record<Currency, number> = {
   USD: 1,
@@ -26,7 +27,7 @@ const Pricing = () => {
   return (
     <section className="py-12">
       <div className="text-center my-5">
-  <h1 className="text-4xl font-bold text-primary-900 mb-2">
+  <h1 className="text-3xl md:text-5xl font-bold mb-6">
     Affordable Fees Plan
   </h1>
   <p className="text-gray-600">
@@ -78,14 +79,14 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <button 
-                className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular 
+              <Link href={"/contact"} 
+                className={`w-full py-4 px-8 rounded-lg font-medium transition-colors ${plan.popular 
                   ? "bg-green-700 hover:bg-green-800 text-white" 
                   : "bg-gray-100 hover:bg-gray-200 text-gray-800"
                 }`}
               >
                 Enroll Now
-              </button>
+              </Link>
             </div>
           ))}
         </div>

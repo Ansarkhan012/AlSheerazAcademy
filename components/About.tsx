@@ -1,19 +1,19 @@
 export default function About() {
   return (
-    <section id="about" className="py-16 bg-white">
+    <section id="about" className="py-16 bg-white h-125 md:h-125">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
          
-          <div className="flex items-center justify-center mb-12">
-            <div className="h-1 w-20 bg-primary-500 rounded-full"></div>
-            <h2 className="mx-6 text-4xl font-bold text-center text-primary-900">ABOUT US</h2>
-            <div className="h-1 w-20 bg-primary-500 rounded-full"></div>
-          </div>
+          
+            
+            <h2 className="text-center text-3xl md:text-5xl font-bold mb-6">ABOUT US</h2>
+            
+  
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-primary-800 mb-6">
-                Our Mission to Spread Quranic Knowledge
+              <h3 className="text-2xl md:text-4xl font-bold mb-6">
+                Our Mission to Spread <span className="text-green-600">Quranic Knowledge</span>
               </h3>
               <p className="text-gray-700 mb-4">
                 At Quran Institute, we are dedicated to providing high-quality Quran education to students of all ages and backgrounds. Our mission is to make Quran learning accessible, engaging, and effective for everyone, regardless of their location.

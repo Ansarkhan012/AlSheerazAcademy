@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,8 +58,8 @@ export default function Header() {
                 <img src="/images/logo.png" className='w-12' alt="" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-green-700 bg-clip-text text-transparent">
-                  AL Sheeraz
+                <h1 className="text-md md:text-2xl font-bold bg-green-700 bg-clip-text text-transparent">
+                  AL-Sheeraz
                 </h1>
                 <p className="text-xs text-gray-600 font-medium">Islamic School</p>
               </div>
@@ -67,7 +68,7 @@ export default function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className={`
@@ -79,7 +80,7 @@ export default function Header() {
                   `}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
 

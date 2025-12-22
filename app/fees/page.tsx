@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CheckCircle, Gift, Shield, Users, Clock, BookOpen, CreditCard } from "lucide-react";
 import Pricing from "@/components/pricing";
+import Link from "next/link";
 
 const FeesPage = () => {
   const [activeTab, setActiveTab] = useState("monthly");
@@ -27,13 +28,13 @@ const FeesPage = () => {
     <main className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
       
       <section style={{
-    backgroundImage: "url('/images/1st.jpg')",
+    backgroundImage: "url('/images/1st.webp')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   }}
-       className="relative overflow-hidden bg-gradient-to-br from-emerald-800 to-teal-900 text-white py-16 px-4">
-        <div className="absolute inset-0 bg-black/40"></div>
+       className="relative overflow-hidden h-125 md:h-96 bg-gradient-to-br from-emerald-800 to-teal-900 text-white py-16 px-4">
+        <div className="absolute inset-0 bg-black/60"></div>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-64 h-64 border-2 border-white rounded-full translate-x-1/3 -translate-y-1/3"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 border-2 border-white rounded-full -translate-x-1/3 translate-y-1/3"></div>
@@ -43,10 +44,10 @@ const FeesPage = () => {
             <Gift className="w-5 h-5" />
             <span className="text-sm font-medium">Educational Fee Structure</span>
           </div>
-          <h1 className="text-4xl md:text-5xl text-white font-bold mb-6">
-            Quran Learning Fee Plan
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">
+            Quran Learning <span className="text-green-500">Fee Plan</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90">
+          <p className="text-sm md:text-md text-gray-200 mb-8">
             Transparent pricing for authentic Quranic education. Every penny supports our mission of spreading Quranic knowledge.
           </p>
          
@@ -138,17 +139,17 @@ const FeesPage = () => {
       {/* Final CTA */}
       <section className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Quran Journey?</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-2">Ready to Start Your Quran Journey?</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Join thousands of students learning Quran with Al Sheeraz Islamic Academy
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emerald-700 hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition">
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <Link href={"/contact"} className="bg-white text-emerald-700 hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition">
               Enroll Now - Free Trial
-            </button>
-            <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-3 rounded-lg transition">
+            </Link>
+            <Link href={"/contact"} className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-4 md:px-8 py-3 rounded-lg transition">
               Contact for Custom Plan
-            </button>
+            </Link>
           </div>
         </div>
       </section>

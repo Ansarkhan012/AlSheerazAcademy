@@ -6,8 +6,8 @@ export default function () {
   <div className="max-w-7xl mx-auto px-5 text-center">
     
     
-    <h2 className="text-3xl md:text-4xl font-bold mb-10">
-      Guidance & Reflections
+    <h2 className="text-2xl md:text-4xl font-bold mb-10">
+      Guidance & <span className='text-green-600'>Reflections</span>
     </h2>
 
     {/* Boxes */}

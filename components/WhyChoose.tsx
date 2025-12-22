@@ -8,7 +8,7 @@ export default function WhyChoose() {
 
     
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
+      <h2 className="text-3xl md:text-5xl font-bold mb-6">
         Why Choose{" "}
         <span className="text-green-700">Al-Sheeraz Islamic School</span>
       </h2>

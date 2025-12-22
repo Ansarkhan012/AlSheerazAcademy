@@ -47,8 +47,8 @@ export default function Courses() {
                 {course.title}
               </h3>
               <p className="text-gray-600 mb-6">{course.description}</p>
-              <a 
-                href="/courses" 
+              <Link
+  href="/courses" 
                 className="text-green-700 font-medium hover:text-green-800 inline-flex items-center"
               >
                 Learn more
@@ -65,7 +65,7 @@ export default function Courses() {
                     d="M9 5l7 7-7 7" 
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
