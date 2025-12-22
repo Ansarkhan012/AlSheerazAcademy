@@ -36,7 +36,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24">
       {/* Page Header */}
       <div className="text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold mb-10">
           Contact Us
         </h1>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto px-4">
