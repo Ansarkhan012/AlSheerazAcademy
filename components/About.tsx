@@ -103,7 +103,7 @@ export default function About() {
               </div>
               
              
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-500/10 rounded-full"></div>
+              {/* <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-500/10 rounded-full"></div> */}
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-green-500/10 rounded-full"></div>
             </div>
           </div>
