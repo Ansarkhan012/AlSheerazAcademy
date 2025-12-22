@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/navbar";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/navbar";
+import WhatsAppButton from "@/components/Whatsapp";
 
 
 export default function RootLayout({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <footer>
           <Footer />
         </footer>
+        <WhatsAppButton />
       </body>
 
     </html>

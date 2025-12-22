@@ -29,12 +29,12 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', form);
-    // Add form submission logic here
+ 
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-24">
-      {/* Page Header */}
+      
       <div className="text-center">
         <h1 className="text-3xl md:text-4xl font-bold mb-10">
           Contact Us
