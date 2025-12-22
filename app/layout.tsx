@@ -30,7 +30,7 @@ export default function RootLayout({
   <meta property="og:url" content="http://localhost:3000" />
   <meta property="og:type" content="website" />
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         <header className="sticky -top-10 z-50">
           <Header />
         </header>
