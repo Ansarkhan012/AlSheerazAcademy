@@ -20,7 +20,7 @@ const CurrencyToggle = ({ currency, setCurrency }: CurrencyToggleProps) => {
             onClick={() => setCurrency(curr)}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
               currency === curr 
-                ? "bg-white text-emerald-700 shadow-sm" 
+                ? "bg-white text-green-700 shadow-sm" 
                 : "text-gray-600 hover:text-gray-900"
             }`}
           >

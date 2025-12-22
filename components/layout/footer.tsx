@@ -64,7 +64,7 @@ export default function Footer() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span className="text-primary-200">mahadulashraf@gmail.com</span>
+                <span className="text-primary-200">alsheerazislamicschool@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-primary-300 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
@@ -82,11 +82,12 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-green-800 mt-2 pt-2 text-center text-primary-300">
-          <p>&copy; {new Date().getFullYear()} Quran Institute. All rights reserved.</p>
+        
+      </div>
+      <div className="border-t bg-green-900 border-gray-800 mt-2 py-2 text-center text-primary-300">
+          <p>&copy; {new Date().getFullYear()} Al Sheeraz Islamic School. All rights reserved.</p>
           
         </div>
-      </div>
     </footer>
   );
 }

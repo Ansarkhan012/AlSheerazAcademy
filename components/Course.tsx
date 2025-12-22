@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Courses() {
   const courses = [
     {
@@ -46,7 +48,7 @@ export default function Courses() {
               </h3>
               <p className="text-gray-600 mb-6">{course.description}</p>
               <a 
-                href="#" 
+                href="/courses" 
                 className="text-green-700 font-medium hover:text-green-800 inline-flex items-center"
               >
                 Learn more
@@ -69,9 +71,12 @@ export default function Courses() {
         </div>
         
         <div className="text-center mt-12">
-          <button className="bg-green-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors duration-300">
-            View All Courses
-          </button>
+          <Link
+  href="/courses"
+  className="inline-block bg-green-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-800 transition-colors duration-300"
+>
+  View All Courses
+</Link>
         </div>
       </div>
     </section>

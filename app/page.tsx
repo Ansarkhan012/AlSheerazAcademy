@@ -8,6 +8,7 @@ import Guid from "@/components/Guid";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/pricing";
 import Step from "@/components/Step";
+import QuranClassesSection from "@/components/Video";
 import WhyChoose from "@/components/WhyChoose";
 
 
@@ -19,6 +20,7 @@ export default function Home() {
     <Free />
     <WhyChoose />
     <About />
+    <QuranClassesSection />
 
     <Pricing />
     <Courses />

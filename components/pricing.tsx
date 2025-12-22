@@ -80,7 +80,7 @@ const Pricing = () => {
 
               <button 
                 className={`w-full py-3 rounded-lg font-medium transition-colors ${plan.popular 
-                  ? "bg-emerald-600 hover:bg-emerald-700 text-white" 
+                  ? "bg-green-700 hover:bg-green-800 text-white" 
                   : "bg-gray-100 hover:bg-gray-200 text-gray-800"
                 }`}
               >

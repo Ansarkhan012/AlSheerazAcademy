@@ -16,11 +16,11 @@ export default function Free() {
       <img
         src="/images/2nd.jpg"
         alt="Quran Book"
-        className="w-[100%] max-w-md "
+        className="w-full max-w-md "
       />
     </div>
 
-    {/* RIGHT CONTENT */}
+    
     <div>
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
         TRY FOR{" "}

@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import Link from 'next/link';
 
 export default function Hero() {
   const slides = [
@@ -36,9 +37,9 @@ export default function Hero() {
     <section className="relative cursor-pointer h-[500px] md:h-[500px]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
-        // effect="fade"
+       
         fadeEffect={{ crossFade: false }}
-        navigation={true}
+        navigation={false}
         pagination={{ 
           clickable: true,
           dynamicBullets: true 
@@ -77,12 +78,12 @@ export default function Hero() {
                   </p>
                   
                   <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <button className="bg-gradient-to-r from-green-600 to-green-800 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <Link href={"/contact"} className="bg-gradient-to-r from-green-600 to-green-800 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                       Register Now
-                    </button>
-                    <button className="border-2 border-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-green-700 hover:text-white">
+                    </Link>
+                    <Link href={"/contact"} className="border-2 border-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-green-700 hover:text-white">
                       Get Free Trial
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
