@@ -47,11 +47,11 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-primary-200 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#courses" className="text-primary-200 hover:text-white transition-colors">Courses</a></li>
-              <li><a href="#teachers" className="text-primary-200 hover:text-white transition-colors">Teachers</a></li>
-              <li><a href="#contact" className="text-primary-200 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#trial" className="text-primary-200 hover:text-white transition-colors">Free Trial</a></li>
+              <li><a href="/" className="text-primary-200 hover:text-white transition-colors">Home</a></li>
+              <li><a href="/courses" className="text-primary-200 hover:text-white transition-colors">Courses</a></li>
+              <li><a href="/blog" className="text-primary-200 hover:text-white transition-colors">Blog</a></li>
+              <li><a href="/contact" className="text-primary-200 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/contact" className="text-primary-200 hover:text-white transition-colors">Free Trial</a></li>
             </ul>
           </div>
           
@@ -70,13 +70,13 @@ export default function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-primary-300 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span className="text-primary-200">+92 370 5875100</span>
+                <span className="text-primary-200">+92 349 9624807</span>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-primary-300 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-primary-200">Online Quran Institute<br />Available Worldwide</span>
+                <span className="text-primary-200">AL Sheeraz Islamic School<br />Available Worldwide</span>
               </li>
             </ul>
           </div>

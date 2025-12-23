@@ -12,6 +12,14 @@ import QuranClassesSection from "@/components/Video";
 import WhyChoose from "@/components/WhyChoose";
 
 
+export const metadata = {
+  title: "Online Quran Academy | Quran Classes for Kids & Adults",
+  description:
+    "Al Sheeraz Islamic Academy offers online Quran classes for kids and adults with Tajweed, Hifz & Islamic studies worldwide.",
+};
+
+
+
 export default function Home() {
   return (
     <>

@@ -1,46 +1,97 @@
-
-import Navbar from "@/components/layout/navbar";
+import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 import WhatsAppButton from "@/components/Whatsapp";
 
+export const metadata: Metadata = {
+  title: {
+    default: "Online Quran Academy | Learn Quran Online with Tajweed",
+    template: "%s | Al Sheeraz Islamic Academy",
+  },
+
+  description:
+    "Join Al Sheeraz Islamic Academy – Online Quran Academy offering live Quran classes, Tajweed, Hifz and Islamic studies for kids and adults worldwide.",
+
+  applicationName: "Al Sheeraz Islamic Academy",
+
+  authors: [{ name: "Al Sheeraz Islamic Academy" }],
+
+  generator: "Next.js",
+
+  keywords: [
+    "Online Quran Academy",
+    "Learn Quran Online",
+    "Quran classes for kids",
+    "Online Tajweed classes",
+    "Islamic studies online",
+  ],
+
+  openGraph: {
+    title: "Online Quran Academy | Learn Quran Online",
+    description:
+      "Live Quran classes with Tajweed & Islamic studies. Learn Quran online with qualified teachers.",
+    url: "https://alsheerazislamicacademy.com",
+    siteName: "Al Sheeraz Islamic Academy",
+    images: [
+      {
+        url: "/1st.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Online Quran Academy",
+      },
+    ],
+    type: "website",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: "https://alsheerazislamicacademy.com",
+  },
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <head>
-      
-  <title>Online Quran Academy - Learn Quran & Islamic Studies</title>
-  <meta 
-    name="description" 
-    content="Join our Online Quran Academy for live Quran classes, Tajweed, and Islamic studies with experienced teachers. Learn from home anywhere in the world." 
-  />
-  <meta name="keywords" content="Quran classes, Online Quran, Tajweed, Islamic studies, Quran academy, Learn Quran online" />
-  <meta name="author" content="Al Sheeraz Islamic Academy" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" />
-  
-  <meta property="og:title" content="Online Quran Academy - Live Quran Classes" />
-  <meta property="og:description" content="Join our Online Quran Academy for live Quran classes, Tajweed, and Islamic studies with experienced teachers." />
-  <meta property="og:image" content="/1st.jpg" />
-  <meta property="og:url" content="http://localhost:3000" />
-  <meta property="og:type" content="website" />
-      </head>
       <body className="overflow-x-hidden">
         <header className="sticky -top-10 z-50">
           <Header />
         </header>
+
         <main>{children}</main>
+
         <footer>
           <Footer />
         </footer>
+
         <WhatsAppButton />
       </body>
+      {/* <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      name: "Al Sheeraz Islamic Academy",
+      url: "https://alsheerazislamicacademy.com",
+      logo: "https://alsheerazislamicacademy.com/logo.png",
+      sameAs: [
+        "https://facebook.com/",
+        "https://instagram.com/",
+      ],
+      description:
+        "Online Quran Academy offering Quran classes with Tajweed, Hifz and Islamic studies for kids and adults.",
+    }),
+  }}
+/> */}
 
     </html>
   );

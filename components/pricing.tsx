@@ -80,7 +80,7 @@ const Pricing = () => {
               </ul>
 
               <Link href={"/contact"} 
-                className={`w-full py-4 px-8 rounded-lg font-medium transition-colors ${plan.popular 
+                className={`w-full py-2 px-6 rounded-lg font-medium transition-colors ${plan.popular 
                   ? "bg-green-700 hover:bg-green-800 text-white" 
                   : "bg-gray-100 hover:bg-gray-200 text-gray-800"
                 }`}

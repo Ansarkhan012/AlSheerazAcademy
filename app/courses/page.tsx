@@ -14,6 +14,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Online Quran Courses",
+  description:
+    "Explore our online Quran courses for kids and adults including Tajweed, Hifz, and basic Islamic studies.",
+};
+
+
 export default function Courses() {
   const courses = [
     {

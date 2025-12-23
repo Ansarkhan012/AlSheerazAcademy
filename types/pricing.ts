@@ -8,3 +8,11 @@ export interface PricingPlan {
   features: string[];
   popular?: boolean;
 }
+
+
+
+
+
+
+
+

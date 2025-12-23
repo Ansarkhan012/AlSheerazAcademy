@@ -12,6 +12,7 @@ export default function Header() {
     { name: 'ABOUT', href: '/about' },
     { name: 'COURSES', href: '/courses' },
     { name: 'FEES', href: '/fees' },
+    { name: 'BLOG', href: '/blog' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'FREE TRIAL', href: '/contact', highlight: true },
   ];
@@ -42,7 +43,7 @@ export default function Header() {
            
             <div className="flex items-center">
               <Phone className="h-4 w-4 mr-2 text-green-300" />
-              <span className="text-[10px] md:text-sm font-medium">+92 370 5875100</span>
+              <span className="text-[10px] md:text-sm font-medium">+92 349 9624807</span>
             </div>
           </div>
         </div>

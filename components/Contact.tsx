@@ -195,8 +195,8 @@ export default function ContactPage() {
     <Phone className="w-6 h-6 text-[#d1bd74]" />
     <div>
       
-      <a href="tel:+923705875100" className="text-sm text-gray-100">
-        +92 370 5875100
+      <a href="tel:+923499624807" className="text-sm text-gray-100">
+        +92 349 9624807
       </a>
     </div>
   </div>
@@ -207,12 +207,12 @@ export default function ContactPage() {
     <div>
       
       <a 
-        href="https://wa.me/923705875100"
+        href="https://wa.me/923499624807"
         target="_blank"
         rel="noopener noreferrer"
         className="text-sm  text-gray-100"
       >
-        +92 370 5875100
+        +92 349 9624807
       </a>
       
     </div>
@@ -224,7 +224,7 @@ export default function ContactPage() {
     <div>
       
       <a 
-        href="mailto:info.mahadulashraf@gmail.com"
+        href="mailto:info.com"
         className="text-sm text-gray-100 break-all"
       >
         info.alsheeraz@gmail.com

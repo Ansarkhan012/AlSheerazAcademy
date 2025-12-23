@@ -1,11 +1,12 @@
 import About from "@/components/About";
+import CTA from "@/components/CTA";
 import { BookOpen, Heart, Star, Users, GraduationCap } from "lucide-react";
 import React from "react";
 
 export default function Page() {
   return (
     <>
-      {/* Hero Section */}
+     
       <section
         style={{
           backgroundImage: "url('/images/1st.webp')",
@@ -43,7 +44,7 @@ export default function Page() {
         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-900/20 to-transparent"></div>
       </section>
 
-      {/* Mission & Vision Section */}
+      
       <section className="py-16 px-4 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 mb-20">
@@ -71,8 +72,8 @@ export default function Page() {
             {/* Vision */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-blue-100">
               <div className="inline-flex items-center gap-3 mb-6">
-                <div className="p-3 bg-blue-100 rounded-xl">
-                  <Star className="w-8 h-8 text-blue-600" />
+                <div className="p-3 bg-green-100 rounded-xl">
+                  <Star className="w-8 h-8 text-green-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-800">Our Vision</h2>
               </div>
@@ -81,10 +82,10 @@ export default function Page() {
                 morally upright, intellectually capable, and spiritually grounded Muslims 
                 who serve as beacons of light in their communities.
               </p>
-              <div className="bg-blue-50 p-4 rounded-lg border-r-4 border-blue-500">
-                <p className="text-blue-800 italic">
+              <div className="bg-green-50 p-4 rounded-lg border-r-4 border-green-500">
+                <p className="text-green-800 italic">
                   "And say: My Lord! Increase me in knowledge" <br />
-                  <span className="text-sm text-blue-600">- Quran 20:114</span>
+                  <span className="text-sm text-green-600">- Quran 20:114</span>
                 </p>
               </div>
             </div>
@@ -174,7 +175,7 @@ export default function Page() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-green-900 to-blue-900 text-white">
+      <section className="py-16 mb-10 bg-gradient-to-br from-green-900 to-green-800 text-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our Impact in Numbers</h2>
@@ -199,7 +200,7 @@ export default function Page() {
         </div>
       </section>
 
-      <About />
+      <CTA />
     </>
   );
 }
