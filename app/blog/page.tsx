@@ -21,6 +21,7 @@ export const metadata = {
 const blogPosts = [
   {
     id: 1,
+    name: "tajweed",
     title: "The Importance of Tajweed in Quran Recitation",
     excerpt:
       "Learn why proper Tajweed is essential for beautiful and correct Quran recitation, and how it preserves the meaning of Allah's words.",
@@ -246,7 +247,7 @@ export default function BlogPage() {
                     ))}
                   </div>
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={`/blog/${post.name}`}
                     className="text-green-700 hover:text-green-800 font-semibold flex items-center"
                   >
                     Read More <ChevronRight className="w-4 h-4 ml-1" />

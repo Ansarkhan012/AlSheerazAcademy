@@ -54,6 +54,7 @@ export default function Header() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             {/* Logo */}
+            <Link href={"/"}>
             <div className="flex items-center space-x-3">
               <div className="">
                 <img src="/images/logo.png" className='w-12' alt="" />
@@ -65,6 +66,7 @@ export default function Header() {
                 <p className="text-xs text-gray-600 font-medium">Islamic School</p>
               </div>
             </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
