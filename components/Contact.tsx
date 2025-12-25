@@ -190,7 +190,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-4">
-  {/* Phone */}
+
   <div className="flex items-center gap-3">
     <Phone className="w-6 h-6 text-[#d1bd74]" />
     <div>

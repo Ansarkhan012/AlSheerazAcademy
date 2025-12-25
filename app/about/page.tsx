@@ -15,7 +15,6 @@ export default function Page() {
         }}
         className="relative py-24 px-4 text-white"
       >
-        {/* Gradient Overlay */}
         <div className="absolute  inset-0 bg-black/60"></div>
         
         <div className="relative z-10 max-w-6xl mx-auto text-center">

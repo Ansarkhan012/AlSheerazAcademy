@@ -1,4 +1,4 @@
-// CurrencyToggle.tsx
+
 "use client";
 
 import { Currency } from "@/types/pricing";

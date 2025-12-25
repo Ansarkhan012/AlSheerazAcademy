@@ -6,21 +6,21 @@ import WhatsAppButton from "@/components/Whatsapp";
 
 export const metadata: Metadata = {
   title: {
-    default: "Online Quran Academy | Learn Quran Online with Tajweed",
-    template: "%s | Al Sheeraz Islamic Academy",
+    default: "Online Quran School | Learn Quran Online with Tajweed",
+    template: "%s | Al Sheeraz Islamic School",
   },
 
   description:
-    "Join Al Sheeraz Islamic Academy – Online Quran Academy offering live Quran classes, Tajweed, Hifz and Islamic studies for kids and adults worldwide.",
+    "Join Al Sheeraz Islamic Academy – Online Quran School offering live Quran classes, Tajweed, Hifz and Islamic studies for kids and adults worldwide.",
 
-  applicationName: "Al Sheeraz Islamic Academy",
+  applicationName: "Al Sheeraz Islamic School",
 
-  authors: [{ name: "Al Sheeraz Islamic Academy" }],
+  authors: [{ name: "Al Sheeraz Islamic School" }],
 
   generator: "Next.js",
 
   keywords: [
-    "Online Quran Academy",
+    "Online Quran School",
     "Learn Quran Online",
     "Quran classes for kids",
     "Online Tajweed classes",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: "Online Quran Academy | Learn Quran Online",
+    title: "Online Quran School | Learn Quran Online",
     description:
       "Live Quran classes with Tajweed & Islamic studies. Learn Quran online with qualified teachers.",
     url: "https://alsheerazislamicacademy.com",
