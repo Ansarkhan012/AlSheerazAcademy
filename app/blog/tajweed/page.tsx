@@ -99,7 +99,7 @@ export default function Page() {
           mistakes while reciting the Quran.
         </p>
 
-        {/* ================= Quranic Verse ================= */}
+        
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-2xl mb-10 text-center">
           <p className="text-2xl leading-loose font-arabic text-right mb-4">
             ﴾ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴿
@@ -112,7 +112,7 @@ export default function Page() {
           </p>
         </div>
 
-        {/* ================= What Is Tajweed ================= */}
+        
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
           What Is Tajweed?
         </h2>
@@ -130,7 +130,7 @@ export default function Page() {
           with Tajweed, and reciting it correctly is an act of worship.
         </p>
 
-        {/* ================= Importance Cards ================= */}
+
         <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-800">
           Importance of Tajweed in Quran Recitation
         </h2>
@@ -166,7 +166,6 @@ export default function Page() {
           ))}
         </div>
 
-        {/* ================= Online Learning ================= */}
         <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-800">
           Learn Tajweed Online with Al Sheeraz Islamic School
         </h2>
@@ -198,7 +197,7 @@ export default function Page() {
           ))}
         </ul>
 
-        {/* ================= CTA ================= */}
+ 
         <div className="text-center py-12">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">
             Start Learning Quran with Tajweed Today
@@ -217,7 +216,7 @@ export default function Page() {
           </Link>
         </div>
 
-        {/* ================= Tags ================= */}
+      
         <div className="border-t pt-8 mt-8">
           <div className="flex flex-wrap gap-2">
             {[
@@ -238,7 +237,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ================= Global CTA ================= */}
+      
       <section className="mt-6">
         <CTA />
       </section>
