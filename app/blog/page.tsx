@@ -9,6 +9,8 @@ import {
   Search,
   BookOpen,
   MessageSquare,
+  Mail,
+  Pen,
 } from "lucide-react";
 
 export const metadata = {
@@ -194,7 +196,7 @@ export default function BlogPage() {
             {blogPosts.length === 1 && (
               <div className="mt-8 md:mt-12 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 md:p-8 text-center">
                 <div className="max-w-md mx-auto">
-                  <div className="text-4xl mb-4">📝</div>
+                  
                   <h3 className="text-xl font-bold mb-3 text-gray-800">
                     More Articles Coming Soon!
                   </h3>
@@ -258,7 +260,10 @@ export default function BlogPage() {
 
             {/* Newsletter */}
             <div className="bg-gradient-to-br from-green-700 to-emerald-600 rounded-xl shadow p-5 md:p-6 text-white">
-              <h3 className="font-bold text-lg mb-3">📩 Stay Updated</h3>
+              <h3 className="flex items-center gap-2 font-bold text-lg mb-4 text-gray-50">
+  <Mail size={20} className="text-gray-100" />
+  Stay Update
+</h3>
               <p className="text-green-100 mb-4 text-sm">
                 Subscribe to get the latest articles and Quran learning tips
               </p>
@@ -266,7 +271,7 @@ export default function BlogPage() {
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="w-full px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-3 rounded-lg border border-amber-50 text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
                 <button
                   type="submit"
@@ -303,7 +308,10 @@ export default function BlogPage() {
             {/* Author Spotlight - For Single Article */}
             {blogPosts.length === 1 && (
               <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl shadow p-5 md:p-6">
-                <h3 className="font-bold text-lg mb-4 text-gray-800">✍️ Author Spotlight</h3>
+                <h3 className="flex items-center gap-2 font-bold text-lg mb-4 text-gray-800">
+  <Pen size={20} className="text-gray-600" />
+  Author Spotlight
+</h3>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">
                     SA
@@ -327,7 +335,7 @@ export default function BlogPage() {
       <section className="py-12 md:py-16 bg-emerald-50">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto">
-            <div className="text-4xl mb-4">📚</div>
+    
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
               Want to Contribute?
             </h2>
@@ -347,7 +355,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* SEO Optimized Footer */}
+     
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
