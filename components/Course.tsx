@@ -30,7 +30,7 @@ export default function Courses() {
   return (
     <section id="courses" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
+        
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Our Quran Learning Courses
@@ -40,7 +40,7 @@ export default function Courses() {
           </p>
         </div>
         
-        {/* Courses Grid */}
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {courses.map((course, index) => {
             const Icon = course.icon;
@@ -80,7 +80,7 @@ export default function Courses() {
           })}
         </div>
         
-        {/* View All Courses Button */}
+       
         <div className="text-center mt-12">
           <Link
             href="/courses"
