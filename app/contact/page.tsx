@@ -130,11 +130,10 @@ export default function ContactPage() {
       )}
 
     
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold">Contact Us</h1>
-        <p className="text-gray-600 mt-3">
-          Admission inquiries & course information
-        </p>
+       <div className="text-center mb-12">
+        <h1 className="text-5xl text-green-700 font-bold mb-2">Contact</h1>
+        <h1 className='text-3xl  font-bold'>Al Sheeraz Islamic School</h1>
+        <p className='text-gray-600 mt-3 px-20'>We are proud of ourselves as the premier online platform for E-services worldwide. Our students appreciate our friendly, professional, and cooperative approach to providing Learn Quran Online services. We are dedicated to assisting you in surpassing your learning goals. If you encounter any challenges requiring solutions,please don’t hesitate to reach out. We are here to collaborate with you and find the answers you’ve been seeking.</p>
       </div>
 
       <section className="max-w-6xl mb-10 mx-auto px-4 grid lg:grid-cols-2 gap-10">
