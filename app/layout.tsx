@@ -6,8 +6,9 @@ import WhatsAppButton from "@/components/Whatsapp";
 
 export const metadata: Metadata = {
   title: {
-    default: "Online Quran School | Learn Quran Online with Tajweed",
+    default: "Al Sheeraz Islamic School | Learn Quran Online with Tajweed",
     template: "%s | Al Sheeraz Islamic School",
+    
   },
 
   description:

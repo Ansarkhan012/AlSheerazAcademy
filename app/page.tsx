@@ -1,6 +1,7 @@
 // import Image from "next/image";
 
 import About from "@/components/About";
+import ContactPage from "@/components/Contact";
 import Contact from "@/components/Contact";
 import Courses from "@/components/Course";
 import Free from "@/components/Free";
@@ -33,7 +34,7 @@ export default function Home() {
     <Pricing />
     <Courses />
     <Guid />
-    <Contact />
+    <ContactPage />
     </>
   );
 }

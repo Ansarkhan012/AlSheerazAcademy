@@ -27,7 +27,7 @@ const Pricing = () => {
   return (
     <section className="py-12">
       <div className="text-center my-5">
-  <h1 className="text-3xl md:text-5xl font-bold mb-6">
+  <h1 className="text-2xl md:text-4xl font-bold mb-6">
     Affordable Fees Plan
   </h1>
   <p className="text-gray-600">

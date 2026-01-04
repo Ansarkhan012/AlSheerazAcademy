@@ -6,7 +6,7 @@ export default function About() {
          
           
             
-            <h2 className="text-center text-3xl md:text-5xl font-bold mb-6">ABOUT US</h2>
+            <h2 className="text-center text-2xl md:text-4xl font-bold mb-6">ABOUT US</h2>
             
   
           
