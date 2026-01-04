@@ -104,7 +104,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50 pt-14">
      
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -133,7 +133,7 @@ export default function ContactPage() {
        <div className="text-center mb-12">
         <h1 className="text-5xl text-green-700 font-bold mb-2">Contact</h1>
         <h1 className='text-3xl  font-bold'>Al Sheeraz Islamic School</h1>
-        <p className='text-gray-600 mt-3 px-20'>We are proud of ourselves as the premier online platform for E-services worldwide. Our students appreciate our friendly, professional, and cooperative approach to providing Learn Quran Online services. We are dedicated to assisting you in surpassing your learning goals. If you encounter any challenges requiring solutions,please don’t hesitate to reach out. We are here to collaborate with you and find the answers you’ve been seeking.</p>
+        <p className='text-gray-600 mt-3 text-sm sm:text-base lg:text-lg max-w-4xl mx-auto'>We are proud of ourselves as the premier online platform for E-services worldwide. Our students appreciate our friendly, professional, and cooperative approach to providing Learn Quran Online services. We are dedicated to assisting you in surpassing your learning goals. If you encounter any challenges requiring solutions,please don’t hesitate to reach out. We are here to collaborate with you and find the answers you’ve been seeking.</p>
       </div>
 
       <section className="max-w-6xl mb-10 mx-auto px-4 grid lg:grid-cols-2 gap-10">
