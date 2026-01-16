@@ -1,19 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, forwardRef } from 'react';
+import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import {
   Phone,
   Mail,
   User,
-  MessageSquare,
   Smartphone,
-  Globe,
   Send,
   CheckCircle,
   X,
 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 type FormData = {
   name: string;
@@ -25,87 +23,57 @@ type FormData = {
 };
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormData>({
-    name: '',
-    mobile: '',
-    email: '',
-    country: 'USA',
-    message: '',
-    website: '',
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
-  }, []);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    defaultValues: {
+      name: '',
+      mobile: '',
+      email: '',
+      country: 'USA',
+      message: '',
+      website: '',
+    },
+  });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const onSubmit = async (data: FormData) => {
+    if (data.website) return; // honeypot
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Honeypot check
-    if (form.website) return;
-
-    setLoading(true);
     setIsError(false);
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.mobile,
-          country: form.country,
-          message: form.message,
-        }
-      );
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-      // Admin WhatsApp only
-      // const adminMsg = `New Admission Inquiry%0A%0AName: ${form.name}%0AEmail: ${form.email}%0APhone: ${form.mobile}%0ACountry: ${form.country}%0AMessage: ${form.message}`;
-
-      // window.open(
-      //   `https://wa.me/${process.env.NEXT_PUBLIC_ADMIN_WHATSAPP}?text=${adminMsg}`,
-      //   '_blank'
-      // );
+      if (!res.ok) throw new Error();
 
       setPopupMessage(
-        `Thank you ${form.name}! Your inquiry has been received. Our team will contact you within 24 hours.`
+        `Thank you ${data.name}! Your inquiry has been received. Our team will contact you within 24 hours.`
       );
       setShowPopup(true);
-
-      setForm({
-        name: '',
-        mobile: '',
-        email: '',
-        country: 'USA',
-        message: '',
-        website: '',
-      });
-    } catch (err) {
+      reset();
+    } catch {
       setIsError(true);
       setPopupMessage(
         'Sorry! Message could not be sent. Please contact us directly on WhatsApp.'
       );
       setShowPopup(true);
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 pt-14">
-     
+      {/* POPUP */}
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div className="bg-white max-w-md w-full rounded-2xl p-6 relative">
@@ -129,50 +97,68 @@ export default function ContactPage() {
         </div>
       )}
 
-    
-       <div className="text-center mb-12">
+      {/* HEADER */}
+      <div className="text-center mb-12">
         <h1 className="text-5xl text-green-700 font-bold mb-2">Contact</h1>
-        <h1 className='text-3xl  font-bold'>Al Sheeraz Islamic School</h1>
-        <p className='text-gray-600 mt-3 text-sm sm:text-base lg:text-lg max-w-4xl mx-auto'>We are proud of ourselves as the premier online platform for E-services worldwide. Our students appreciate our friendly, professional, and cooperative approach to providing Learn Quran Online services. We are dedicated to assisting you in surpassing your learning goals. If you encounter any challenges requiring solutions,please don’t hesitate to reach out. We are here to collaborate with you and find the answers you’ve been seeking.</p>
+        <h1 className="text-3xl font-bold">Al Sheeraz Islamic School</h1>
+        <p className="text-gray-600 mt-3 text-sm sm:text-base lg:text-lg max-w-4xl mx-auto">
+          We are proud of ourselves as the premier online platform for E-services worldwide.
+          Our students appreciate our friendly, professional, and cooperative approach.
+        </p>
       </div>
 
       <section className="max-w-6xl mb-10 mx-auto px-4 grid lg:grid-cols-2 gap-10">
         {/* FORM */}
-        <div style={{
-          backgroundImage: `url('/images/pattern.png')`
-        }}
-         className="bg-green-900 text-white rounded-3xl p-8">
+        <div
+          style={{ backgroundImage: `url('/images/pattern.png')` }}
+          className="bg-green-900 text-white rounded-3xl p-8"
+        >
           <h2 className="text-3xl font-bold mb-6 text-center">
             Quick Admission Form
           </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Honeypot */}
-            <input
-              type="text"
-              name="website"
-              value={form.website}
-              onChange={handleChange}
-              className='hidden'
-              
-            />
+            <input type="text" className="hidden" {...register('website')} />
 
-            <Input icon={<User />} name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
             <Input
-              icon={<Smartphone />}
-              name="mobile"
-              placeholder="+923001234567"
-              value={form.mobile}
-              onChange={handleChange}
-              className="bg-gray-50"
-              
+              icon={<User />}
+              placeholder="Full Name"
+              {...register('name', { required: true })}
             />
-            <Input icon={<Mail />} name="email" type="email" placeholder="Email Address" value={form.email} onChange={handleChange} className="bg-gray-50" />
+            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+
+            <Input
+  icon={<Smartphone />}
+  placeholder="+923001234567"
+  {...register('mobile', {
+    required: 'Mobile number is required',
+    pattern: {
+      value: /^\+\d{1,3}\d{6,12}$/,
+      message: 'Enter a valid international phone number (+92...)',
+    },
+  })}
+/>
+{errors.mobile && (
+  <p className="text-red-500 text-sm">{errors.mobile.message}</p>
+)}
+
+            <Input
+  icon={<Mail />}
+  type="email"
+  placeholder="Email Address"
+  {...register('email', {
+    required: 'Email is required',
+    pattern: {
+      value: /^\S+@\S+\.\S+$/,
+      message: 'Invalid email address',
+    },
+  })}
+/>
+{errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
 
             <select
-              name="country"
-              value={form.country}
-              onChange={handleChange}
+              {...register('country')}
               className="w-full p-3 rounded-xl bg-gray-50 text-black"
             >
               <option>USA</option>
@@ -183,19 +169,18 @@ export default function ContactPage() {
             </select>
 
             <textarea
-              name="message"
               rows={4}
               placeholder="Your message..."
-              value={form.message}
-              onChange={handleChange}
+              {...register('message', { required: true })}
               className="w-full p-3 rounded-xl bg-gray-50 text-black"
             />
+            {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
 
             <button
-              disabled={loading}
+              disabled={isSubmitting}
               className="w-full bg-black py-4 rounded-xl flex justify-center items-center gap-2"
             >
-              {loading ? 'Sending...' : <>
+              {isSubmitting ? 'Sending...' : <>
                 <Send /> Send Message
               </>}
             </button>
@@ -203,23 +188,23 @@ export default function ContactPage() {
         </div>
 
         {/* INFO */}
-        <div style={{
-          backgroundImage: `url('/images/pattern.png')`
-        }}
-         className="bg-[#847645] text-white rounded-3xl p-8">
+        <div
+          style={{ backgroundImage: `url('/images/pattern.png')` }}
+          className="bg-[#847645] text-white rounded-3xl p-8"
+        >
           <h2 className="text-3xl font-bold text-center mb-6">
             More Ways to Reach Us
           </h2>
 
           <div className="relative w-full h-64 md:h-72 mb-6">
-  <Image
-    src="/images/3rd.webp"
-    alt="Quran Learning"
-    fill
-    className="rounded-2xl object-cover"
-    priority
-  />
-</div>
+            <Image
+              src="/images/3rd.webp"
+              alt="Quran Learning"
+              fill
+              className="rounded-2xl object-cover"
+              priority
+            />
+          </div>
 
           <div className="space-y-4">
             <InfoItem
@@ -240,22 +225,25 @@ export default function ContactPage() {
   );
 }
 
-/* Reusable Components */
-function Input({ icon, className = '', ...props }: any) {
-  return (
-    <div className="relative">
-      <span className="absolute left-3 top-3 text-gray-500">
-        {icon}
-      </span>
-      <input
-        {...props}
-        required
-        className={`w-full pl-10 p-3 rounded-xl text-black bg-white ${className}`}
-      />
-    </div>
-  );
-}
+/* ================= Reusable Components ================= */
 
+const Input = forwardRef<HTMLInputElement, any>(
+  ({ icon, className = '', ...props }, ref) => {
+    return (
+      <div className="relative">
+        <span className="absolute left-3 top-3 text-gray-500">
+          {icon}
+        </span>
+        <input
+          ref={ref}
+          {...props}
+          className={`w-full pl-10 p-3 rounded-xl text-black bg-white ${className}`}
+        />
+      </div>
+    );
+  }
+);
+Input.displayName = 'Input';
 
 function InfoItem({ icon, title, text, link }: any) {
   const Wrapper = link ? 'a' : 'div';

@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://alsheerazislamicacademy.com/courses" },
     { url: "https://alsheerazislamicacademy.com/fees" },
     { url: "https://alsheerazislamicacademy.com/contact" },
-    { url: "https://alsheerazislamicacademy.com/online-quran-classes-for-kids" },
-    { url: "https://alsheerazislamicacademy.com/online-quran-classes-for-adults" },
+    
   ];
 }
