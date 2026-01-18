@@ -12,6 +12,8 @@ export default function Header() {
     { name: 'ABOUT', href: '/about' },
     { name: 'COURSES', href: '/courses' },
     { name: 'FEES', href: '/fees' },
+    { name: 'RECITATION', href: '/quran' },
+
     { name: 'BLOG', href: '/blog' },
     { name: 'CONTACT', href: '/contact' },
     { name: 'FREE TRIAL', href: '/contact', highlight: true },
