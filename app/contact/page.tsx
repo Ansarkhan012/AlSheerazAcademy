@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import {
@@ -12,15 +12,10 @@ import {
   CheckCircle,
   X,
 } from 'lucide-react';
+import { submitContactForm, type ContactSubmission } from '@/lib/contact';
+import { SITE_CONTACT } from '@/lib/site';
 
-type FormData = {
-  name: string;
-  mobile: string;
-  email: string;
-  country: string;
-  message: string;
-  website?: string; // honeypot
-};
+type FormData = ContactSubmission;
 
 export default function ContactPage() {
   const [showPopup, setShowPopup] = useState(false);
@@ -31,6 +26,7 @@ export default function ContactPage() {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     defaultValues: {
@@ -49,23 +45,25 @@ export default function ContactPage() {
     setIsError(false);
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) throw new Error();
+      const result = await submitContactForm(data);
+      if (!result.success) {
+        Object.entries(result.errors ?? {}).forEach(([field, message]) => {
+          setError(field as keyof FormData, { type: 'server', message });
+        });
+        throw new Error(result.message);
+      }
 
       setPopupMessage(
         `Thank you ${data.name}! Your inquiry has been received. Our team will contact you within 24 hours.`
       );
       setShowPopup(true);
       reset();
-    } catch {
+    } catch (error) {
       setIsError(true);
       setPopupMessage(
-        'Sorry! Message could not be sent. Please contact us directly on WhatsApp.'
+        error instanceof Error && error.message
+          ? error.message
+          : 'Sorry! Message could not be sent. Please contact us directly on WhatsApp.'
       );
       setShowPopup(true);
     }
@@ -119,7 +117,7 @@ export default function ContactPage() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Honeypot */}
-            <input type="text" className="hidden" {...register('website')} />
+            <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" {...register('website')} />
 
             <Input
               icon={<User />}
@@ -210,13 +208,14 @@ export default function ContactPage() {
             <InfoItem
               icon={<Phone />}
               title="WhatsApp"
-              text="+92 349 9624807"
-              link="https://wa.me/923499624807"
+              text={SITE_CONTACT.phoneDisplay}
+              link={`https://wa.me/${SITE_CONTACT.phoneE164.slice(1)}`}
             />
             <InfoItem
               icon={<Mail />}
               title="Email"
-              text="info.alsheeraz@gmail.com"
+              text={SITE_CONTACT.infoEmail}
+              link={`mailto:${SITE_CONTACT.infoEmail}`}
             />
           </div>
         </div>
@@ -227,7 +226,9 @@ export default function ContactPage() {
 
 /* ================= Reusable Components ================= */
 
-const Input = forwardRef<HTMLInputElement, any>(
+type InputProps = ComponentPropsWithoutRef<'input'> & { icon: ReactNode };
+
+const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ icon, className = '', ...props }, ref) => {
     return (
       <div className="relative">
@@ -245,14 +246,11 @@ const Input = forwardRef<HTMLInputElement, any>(
 );
 Input.displayName = 'Input';
 
-function InfoItem({ icon, title, text, link }: any) {
-  const Wrapper = link ? 'a' : 'div';
-  return (
-    <Wrapper
-      href={link}
-      target="_blank"
-      className="flex gap-3 items-center bg-white/10 p-4 rounded-xl"
-    >
+type InfoItemProps = { icon: ReactNode; title: string; text: string; link?: string };
+
+function InfoItem({ icon, title, text, link }: InfoItemProps) {
+  const content = (
+    <>
       <div className="w-10 h-10 bg-green-600 flex items-center justify-center rounded-full">
         {icon}
       </div>
@@ -260,6 +258,14 @@ function InfoItem({ icon, title, text, link }: any) {
         <p className="font-semibold">{title}</p>
         <p className="text-sm">{text}</p>
       </div>
-    </Wrapper>
+    </>
+  );
+
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer" className="flex gap-3 items-center bg-white/10 p-4 rounded-xl">
+      {content}
+    </a>
+  ) : (
+    <div className="flex gap-3 items-center bg-white/10 p-4 rounded-xl">{content}</div>
   );
 }

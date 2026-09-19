@@ -1,0 +1,2 @@
+import { createClient } from "@/lib/supabase/server";import { PageHeader } from "@/components/admin/ui";import { TaxonomyManager } from "@/components/admin/taxonomy-manager";
+export default async function TagsPage(){const db=await createClient();const {data}=await db.from("tags").select("id,name,slug").order("name");return <><PageHeader title="Tags" description="Add flexible labels for related subjects."/><TaxonomyManager kind="tags" items={data||[]}/></>}

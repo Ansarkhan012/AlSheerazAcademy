@@ -1,0 +1,2 @@
+import { createClient } from "@/lib/supabase/server";import { PageHeader } from "@/components/admin/ui";import { TaxonomyManager } from "@/components/admin/taxonomy-manager";
+export default async function Categories(){const db=await createClient();const {data}=await db.from("categories").select("id,name,slug,description").order("name");return <><PageHeader title="Categories" description="Organize articles into clear primary topics."/><TaxonomyManager kind="categories" items={data||[]}/></>}

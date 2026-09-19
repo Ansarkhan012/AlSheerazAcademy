@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
-import WhatsAppButton from "@/components/Whatsapp";
+import SiteChrome from "@/components/layout/site-chrome";
 import Script from "next/script";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Al Sheeraz Islamic School | Learn Quran Online with Tajweed",
     template: "%s | Al Sheeraz Islamic School",
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     title: "Al Sheeraz Islamic School | Online Quran Classes",
     description:
       "Live Quran classes with Tajweed, Hifz and Islamic studies for kids and adults worldwide.",
-    url: "https://www.alsheerazislamicschool.com",
+    url: SITE_URL,
     siteName: "Al Sheeraz Islamic School",
     images: [
       {
-        url: "https://www.alsheerazislamicschool.com/1st.webp",
+        url: "/1st.webp",
         width: 1200,
         height: 630,
         alt: "Al Sheeraz Islamic School",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://www.alsheerazislamicschool.com",
+    canonical: "/",
   },
 
   icons: {
@@ -94,8 +94,8 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             "name": "Al Sheeraz Islamic School",
-            "url": "https://www.alsheerazislamicschool.com",
-            "logo": "https://www.alsheerazislamicschool.com/logo.jpg",
+            "url": "${SITE_URL}",
+            "logo": "${SITE_URL}/logo.jpg",
             "description": "Online Quran School offering Quran classes with Tajweed, Hifz and Islamic studies for kids and adults worldwide."
           }
           `}
@@ -103,17 +103,7 @@ export default function RootLayout({
       </head>
 
       <body className="overflow-x-hidden">
-        <header className="sticky -top-10 z-50">
-          <Header />
-        </header>
-
-        <main>{children}</main>
-
-        <footer>
-          <Footer />
-        </footer>
-
-        <WhatsAppButton />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

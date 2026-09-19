@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function () {
+export default function Guid() {
   return (
     <section className="my-24  py-4">
   <div className="max-w-7xl mx-auto px-5 text-center">

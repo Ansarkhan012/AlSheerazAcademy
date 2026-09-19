@@ -18,6 +18,7 @@ export const metadata = {
   title: "Online Quran Courses",
   description:
     "Explore our online Quran courses for kids and adults including Tajweed, Hifz, and basic Islamic studies.",
+  alternates: { canonical: "/courses" },
 };
 
 

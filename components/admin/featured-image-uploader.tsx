@@ -1,0 +1,10 @@
+"use client";
+import { useState } from "react";
+import { createClient } from "@/lib/supabase/browser";
+import { validateImage } from "@/lib/blog/cms-validation";
+export function FeaturedImageUploader({ userId, path, alt, onChange }: { userId: string; path: string | null; alt: string | null; onChange: (path: string | null, alt: string | null) => void }) {
+  const [busy, setBusy] = useState(false); const [error, setError] = useState("");
+  const url = path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/blog-media/${path}` : null;
+  async function upload(file: File) { const issue = validateImage(file); if (issue) { setError(issue); return; } setBusy(true); setError(""); const db = createClient(); const ext = file.name.split(".").pop()?.toLowerCase() || "jpg"; const next = `${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.${ext}`; const { error: e } = await db.storage.from("blog-media").upload(next, file, { contentType: file.type }); if (e) setError("Image upload failed."); else onChange(next, alt); setBusy(false); }
+  return <div className="space-y-3">{url ? <img src={url} alt={alt || "Featured preview"} className="h-48 w-full rounded-xl object-cover" /> : <div className="grid h-40 place-items-center rounded-xl border border-dashed bg-slate-50 text-sm text-slate-500">No featured image</div>}<div className="flex flex-wrap gap-2"><label className="cursor-pointer rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white">{busy ? "Uploading…" : path ? "Replace image" : "Choose image"}<input disabled={busy} type="file" accept="image/jpeg,image/png,image/webp,image/avif" className="sr-only" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} /></label>{path && <button disabled={busy} type="button" onClick={() => { onChange(null, null); setError(""); }} className="rounded-lg border px-4 py-2 text-sm font-semibold text-red-700">Remove</button>}</div><p className="text-xs text-slate-500">JPEG, PNG, WebP or AVIF · maximum 5 MB</p>{error && <p className="text-sm text-red-600">{error}</p>}</div>;
+}

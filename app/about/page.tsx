@@ -1,7 +1,12 @@
-import About from "@/components/About";
 import CTA from "@/components/CTA";
 import { BookOpen, Heart, Star, Users, GraduationCap } from "lucide-react";
 import React from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  alternates: { canonical: "/about" },
+};
 
 export default function Page() {
   return (
@@ -62,7 +67,7 @@ export default function Page() {
               </p>
               <div className="bg-green-50 p-4 rounded-lg border-r-4 border-green-500">
                 <p className="text-green-800 italic">
-                  "Read in the name of your Lord who created" <br />
+                  &ldquo;Read in the name of your Lord who created&rdquo; <br />
                   <span className="text-sm text-green-600">- Quran 96:1</span>
                 </p>
               </div>
@@ -83,7 +88,7 @@ export default function Page() {
               </p>
               <div className="bg-green-50 p-4 rounded-lg border-r-4 border-green-500">
                 <p className="text-green-800 italic">
-                  "And say: My Lord! Increase me in knowledge" <br />
+                  &ldquo;And say: My Lord! Increase me in knowledge&rdquo; <br />
                   <span className="text-sm text-green-600">- Quran 20:114</span>
                 </p>
               </div>
@@ -162,7 +167,7 @@ export default function Page() {
                 </p>
                 <div className="bg-white p-6 rounded-xl mt-8 border-l-4 border-green-500">
                   <p className="text-gray-800 italic text-center">
-                    "The best among you are those who learn the Quran and teach it"
+                    &ldquo;The best among you are those who learn the Quran and teach it&rdquo;
                     <br />
                     <span className="text-green-600 text-sm">- Prophet Muhammad (SAW)</span>
                   </p>

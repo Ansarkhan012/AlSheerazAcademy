@@ -1,20 +1,23 @@
+import { SITE_CONTACT } from "@/lib/site";
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer style={{
       backgroundImage: `url('/images/pattern.png')`
     }} className="bg-green-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           
-          <div className="md:col-span-2">
+          <div className="sm:col-span-2">
             <div className="flex items-center mb-2 space-x-3">
               <div className="">
                 <img src="/images/logo.png" className='w-12 rounded-lg' alt="" />
               </div>
               <div>
-                <h1 className="text-md md:text-2xl font-bold text-gray-50 bg-clip-text">
+                <p className="text-md md:text-2xl font-bold text-gray-50 bg-clip-text">
                   AL-Sheeraz
-                </h1>
+                </p>
                 <p className="text-xs text-gray-100 font-medium">Islamic School</p>
               </div>
             </div>
@@ -47,11 +50,11 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="/" className="text-primary-200 hover:text-white transition-colors">Home</a></li>
-              <li><a href="/courses" className="text-primary-200 hover:text-white transition-colors">Courses</a></li>
-              <li><a href="/blog" className="text-primary-200 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="/contact" className="text-primary-200 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="/contact" className="text-primary-200 hover:text-white transition-colors">Free Trial</a></li>
+              <li><Link href="/" className="text-primary-200 hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/courses" className="text-primary-200 hover:text-white transition-colors">Courses</Link></li>
+              <li><Link href="/blog" className="text-primary-200 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="text-primary-200 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/contact" className="text-primary-200 hover:text-white transition-colors">Free Trial</Link></li>
             </ul>
           </div>
           
@@ -64,13 +67,13 @@ export default function Footer() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <span className="text-primary-200">alsheerazislamicschool@gmail.com</span>
+                <a href={`mailto:${SITE_CONTACT.email}`} className="break-all text-primary-200">{SITE_CONTACT.email}</a>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-primary-300 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span className="text-primary-200">+92 349 9624807</span>
+                <a href={`tel:${SITE_CONTACT.phoneE164}`} className="text-primary-200">{SITE_CONTACT.phoneDisplay}</a>
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-primary-300 mt-0.5" viewBox="0 0 20 20" fill="currentColor">

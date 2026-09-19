@@ -2,7 +2,6 @@
 
 import About from "@/components/About";
 import ContactPage from "@/components/Contact";
-import Contact from "@/components/Contact";
 import Courses from "@/components/Course";
 import Free from "@/components/Free";
 import Guid from "@/components/Guid";
@@ -16,7 +15,8 @@ import WhyChoose from "@/components/WhyChoose";
 export const metadata = {
   title: "Online Quran Academy | Quran Classes for Kids & Adults",
   description:
-    "Al Sheeraz Islamic Academy offers online Quran classes for kids and adults with Tajweed, Hifz & Islamic studies worldwide.",
+    "Al Sheeraz Islamic School offers online Quran classes for kids and adults with Tajweed, Hifz & Islamic studies worldwide.",
+  alternates: { canonical: "/" },
 };
 
 

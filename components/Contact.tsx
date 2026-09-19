@@ -2,23 +2,20 @@
 
 import { useState } from 'react';
 import { Phone, Mail, User, MessageSquare, Smartphone, Globe, Send } from 'lucide-react';
-
-type FormData = {
-  name: string;
-  mobile: string;
-  email: string;
-  country: string;
-  message: string;
-};
+import { submitContactForm, type ContactSubmission } from '@/lib/contact';
+import { SITE_CONTACT } from '@/lib/site';
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormData>({
+  const [form, setForm] = useState<ContactSubmission>({
     name: '',
     mobile: '',
     email: '',
     country: 'USA',
     message: '',
+    website: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,10 +23,22 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', form);
- 
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setStatus(null);
+    const result = await submitContactForm(form);
+    setIsSubmitting(false);
+
+    if (result.success) {
+      setStatus({ type: 'success', message: 'Thank you! Your inquiry has been received.' });
+      setForm({ name: '', mobile: '', email: '', country: 'USA', message: '', website: '' });
+      return;
+    }
+
+    setStatus({ type: 'error', message: result.message });
   };
 
   return (
@@ -66,11 +75,20 @@ export default function ContactPage() {
                     Quick Admission Form
                   </h2>
                   <p className="text-green-100 opacity-90">
-                    Fill out the form and we'll contact you within 24 hours
+                    Fill out the form and we&apos;ll contact you within 24 hours
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input
+                    name="website"
+                    value={form.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   <div className="space-y-5">
                     <div className="relative">
                       <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
@@ -149,13 +167,22 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className="w-full bg-gradient-to-r from-gray-900 to-black text-white py-4 rounded-xl 
                                font-semibold hover:from-black hover:to-gray-900 hover:shadow-xl 
                                active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3"
                     >
                       <Send className="w-5 h-5" />
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
+                    {status && (
+                      <p
+                        role="status"
+                        className={`text-sm text-center ${status.type === 'success' ? 'text-green-100' : 'text-red-200'}`}
+                      >
+                        {status.message}
+                      </p>
+                    )}
                   </div>
                 </form>
               </div>
@@ -177,7 +204,7 @@ export default function ContactPage() {
                     More Ways to Reach Us
                   </h2>
                   <p className="text-[#d1bd74]">
-                    We're available through multiple channels for your convenience
+                    We&apos;re available through multiple channels for your convenience
                   </p>
                 </div>
 
@@ -195,8 +222,8 @@ export default function ContactPage() {
     <Phone className="w-6 h-6 text-[#d1bd74]" />
     <div>
       
-      <a href="tel:+923499624807" className="text-sm text-gray-100">
-        +92 349 9624807
+      <a href={`tel:${SITE_CONTACT.phoneE164}`} className="text-sm text-gray-100">
+        {SITE_CONTACT.phoneDisplay}
       </a>
     </div>
   </div>
@@ -207,12 +234,12 @@ export default function ContactPage() {
     <div>
       
       <a 
-        href="https://wa.me/923499624807"
+        href={`https://wa.me/${SITE_CONTACT.phoneE164.slice(1)}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-sm  text-gray-100"
       >
-        +92 349 9624807
+        {SITE_CONTACT.phoneDisplay}
       </a>
       
     </div>
@@ -224,10 +251,10 @@ export default function ContactPage() {
     <div>
       
       <a 
-        href="mailto:info.com"
+        href={`mailto:${SITE_CONTACT.infoEmail}`}
         className="text-sm text-gray-100 break-all"
       >
-        info.alsheeraz@gmail.com
+        {SITE_CONTACT.infoEmail}
       </a>
       
     </div>

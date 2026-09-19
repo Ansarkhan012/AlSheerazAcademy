@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { SITE_CONTACT } from '@/lib/site';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,17 +36,17 @@ export default function Header() {
             <div className="flex items-center">
               <Mail className="h-4 w-4 mr-2 text-green-300" />
               <a 
-                href="mailto:alsheerazislamicschool@gmail.com" 
+                href={`mailto:${SITE_CONTACT.email}`}
                 className="text-[10px] md:text-sm hover:text-green-200 transition-colors duration-200"
               >
-                alsheerazislamicschool@gmail.com
+                {SITE_CONTACT.email}
               </a>
             </div>
             
            
             <div className="flex items-center">
               <Phone className="h-4 w-4 mr-2 text-green-300" />
-              <span className="text-[10px] md:text-sm font-medium">+92 349 9624807</span>
+              <a href={`tel:${SITE_CONTACT.phoneE164}`} className="text-[10px] md:text-sm font-medium">{SITE_CONTACT.phoneDisplay}</a>
             </div>
           </div>
         </div>
@@ -62,9 +63,9 @@ export default function Header() {
                 <img src="/images/logo.png" className='w-12' alt="" />
               </div>
               <div>
-                <h1 className="text-md md:text-2xl font-bold bg-green-700 bg-clip-text text-transparent">
+                <p className="text-md md:text-2xl font-bold bg-green-700 bg-clip-text text-transparent">
                   AL-Sheeraz
-                </h1>
+                </p>
                 <p className="text-xs text-gray-600 font-medium">Islamic School</p>
               </div>
             </div>

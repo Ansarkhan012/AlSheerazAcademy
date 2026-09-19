@@ -31,7 +31,7 @@ export default function Free() {
 
       <p className="text-gray-700 text-lg leading-relaxed mb-6 max-w-xl">
         Complete the form to experience our FREE Trial classes and learn the
-        Quran online. Qaf Quran Academy provides up to Three Days of
+        Quran online. Al Sheeraz Islamic School provides up to Three Days of
         complimentary trials. Enroll with us today.
       </p>
 

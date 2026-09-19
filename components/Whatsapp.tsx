@@ -1,11 +1,12 @@
 "use client";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { SITE_CONTACT } from "@/lib/site";
 
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/923499624807?text=Assalamualaikum%20I%20want%20to%20know%20about%20Quran%20classes"
+      href={`https://wa.me/${SITE_CONTACT.phoneE164.slice(1)}?text=Assalamualaikum%20I%20want%20to%20know%20about%20Quran%20classes`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center

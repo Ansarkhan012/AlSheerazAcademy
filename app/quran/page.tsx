@@ -1,4 +1,19 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Read and Listen to the Quran',
+  description: 'Read the Quran with English and Urdu translations and listen to recitation online.',
+  alternates: { canonical: '/quran' },
+};
+
+type SurahSummary = {
+  number: number;
+  name: string;
+  englishName: string;
+  englishNameTranslation: string;
+  numberOfAyahs: number;
+};
 
 // Data fetching function
 async function getSurahs() {
@@ -9,7 +24,7 @@ async function getSurahs() {
 
 export default async function QuranListPage() {
   const data = await getSurahs();
-  const surahs = data.data;
+  const surahs = data.data as SurahSummary[];
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
@@ -20,7 +35,7 @@ export default async function QuranListPage() {
 
       {/* Surah Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {surahs.map((surah: any) => (
+        {surahs.map((surah) => (
           <Link 
             key={surah.number} 
             href={`/quran/${surah.number}`}

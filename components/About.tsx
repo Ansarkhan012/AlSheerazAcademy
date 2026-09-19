@@ -16,7 +16,7 @@ export default function About() {
                 Our Mission to Spread <span className="text-green-600">Quranic Knowledge</span>
               </h3>
               <p className="text-gray-700 mb-4">
-                At Quran Institute, we are dedicated to providing high-quality Quran education to students of all ages and backgrounds. Our mission is to make Quran learning accessible, engaging, and effective for everyone, regardless of their location.
+                At Al Sheeraz Islamic School, we are dedicated to providing high-quality Quran education to students of all ages and backgrounds. Our mission is to make Quran learning accessible, engaging, and effective for everyone, regardless of their location.
               </p>
               <p className="text-gray-700 mb-6">
                 With certified teachers and a structured curriculum, we help students develop a deep connection with the Quran, improving their recitation, understanding, and application of its teachings in daily life.

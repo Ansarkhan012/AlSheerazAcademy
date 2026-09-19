@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ surahId: string }> }): Promise<Metadata> {
+  const { surahId } = await params;
+  return { alternates: { canonical: `/quran/${surahId}` } };
+}
+
+type Ayah = { number: number; text: string; audio?: string };
 
 async function getSurahDetail(id: string) {
   const res = await fetch(
@@ -43,7 +51,7 @@ export default async function SurahReadingPage({ params }: { params: Promise<{ s
         )}
 
         <div className="space-y-8">
-          {arabic.ayahs.map((ayah: any, index: number) => (
+          {arabic.ayahs.map((ayah: Ayah, index: number) => (
             <div 
               key={ayah.number} 
               className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-emerald-200 transition-all"
